@@ -108,7 +108,7 @@ public class Unit {
         Random random = new Random();
         int evasionRNG = random.nextInt(101);
 
-        if (evasionRNG <= this.target.getSpd()/1000*0.2*100) {
+        if (evasionRNG <= this.target.getSpd()/150*0.2*100) {
             return String.format("%s tried to attack %s, but %s evaded the attack.", this.originalName, this.target.getOriginalName(), this.target.getOriginalName());
         }
 
@@ -117,7 +117,7 @@ public class Unit {
         double defendDamageReduction = 1;
 
         int critRNG = random.nextInt(101);
-        if (critRNG <= this.spd/1000*0.2*100) {
+        if (critRNG <= this.spd/150*0.2*100) {
             critBonus = 2;
         }
 
