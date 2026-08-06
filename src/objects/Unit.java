@@ -152,11 +152,14 @@ public class Unit {
             this.target.setName("[DEFEATED]");
         }
 
-        if (critBonus == 2 && effectiveElementBonus == 2) {
-            return String.format("%s EFFECTIVELY and CRITICALLY attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
+        if (critBonus == 2 && effectiveElementBonus == 0.5) {
+            return String.format("%s ineffectively, but CRITICALLY attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
         }
-        else if (critBonus == 2 && effectiveElementBonus == 1) {
-            return String.format("%s CRITICALLY attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
+        else if (critBonus == 2 && defendDamageReduction == 0.25) {
+            return String.format("%s CRITICALLY attacks %s with %s magic for %d damage, while %s is defending.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage, this.target.getOriginalName());
+        }
+        else if (critBonus == 2 && effectiveElementBonus == 2) {
+            return String.format("%s EFFECTIVELY and CRITICALLY attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
         }
         else if (critBonus == 1 && effectiveElementBonus == 2) {
             return String.format("%s EFFECTIVELY attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
@@ -164,14 +167,11 @@ public class Unit {
         else if (critBonus == 1 && effectiveElementBonus == 0.5) {
             return String.format("%s ineffectively attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
         }
-        else if (critBonus == 2 && effectiveElementBonus == 0.5) {
-            return String.format("%s ineffectively, but CRITICALLY attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
-        }
         else if (critBonus == 1 && defendDamageReduction == 0.25) {
             return String.format("%s attacks %s with %s magic for %d damage, while %s is defending.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage, this.target.getOriginalName());
         }
-        else if (critBonus == 2 && defendDamageReduction == 0.25) {
-            return String.format("%s CRITICALLY attacks %s with %s magic for %d damage, while %s is defending.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage, this.target.getOriginalName());
+        else if (critBonus == 2 && effectiveElementBonus == 1) {
+            return String.format("%s CRITICALLY attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
         }
         else {
             return String.format("%s attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
