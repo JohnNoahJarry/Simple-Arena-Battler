@@ -354,13 +354,13 @@ public class Battle {
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" | SUN: %02d%%  STR: %02d%%  |  ", enemy.getSunChance(), enemy.getStarChance());
+            System.out.printf(" | SUN: %-3d%% STR: %-3d%% |  ", enemy.getSunChance(), enemy.getStarChance());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" |      MON: %02d%%       |  ", enemy.getMoonChance());
+            System.out.printf(" |      MON: %-3d%%      |  ", enemy.getMoonChance());
         }
 
         System.out.println();
