@@ -2,9 +2,10 @@
 
 A simple terminal game where you fight 10 battles to then overthrow the Arena's champions.
 
-## Version 1.1.0 Changelog
+## Version 1.1.1 Changelog
 
 + Modified the SPD stat to better apply evasion and critical strike chances.
++ Fixed 100% chances not displaying properly under enemy team stats.
 
 ## Summary
 
