@@ -30,7 +30,6 @@ public class GameManager {
         this.names = new ArrayList<>();
 
         InputStream inputStream = getClass().getResourceAsStream("/Names");
-
         assert inputStream != null;
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 
