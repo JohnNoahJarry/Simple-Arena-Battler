@@ -49,19 +49,21 @@ public class Congratulations {
                 >> As promised, here are your rewards.
                 """);
 
-        if (gameManager.getCurrentDifficulty().equals("1")) {
-            for (Unit player : gameManager.getPlayerParty()) {
-                System.out.printf(">> %s leveled up once. (%d -> %d)\n", player.getOriginalName(), player.getLevel()-1, player.getLevel());
+        switch (gameManager.getCurrentDifficulty()) {
+            case "1" -> {
+                for (Unit player : gameManager.getPlayerParty()) {
+                    System.out.printf(">> %s leveled up twice. (%d -> %d)\n", player.getOriginalName(), player.getLevel() - 2, player.getLevel());
+                }
             }
-        }
-        else if (gameManager.getCurrentDifficulty().equals("2")) {
-            for (Unit player : gameManager.getPlayerParty()) {
-                System.out.printf(">> %s leveled up twice. (%d -> %d)\n", player.getOriginalName(), player.getLevel()-2, player.getLevel());
+            case "2" -> {
+                for (Unit player : gameManager.getPlayerParty()) {
+                    System.out.printf(">> %s leveled up 4 times. (%d -> %d)\n", player.getOriginalName(), player.getLevel() - 4, player.getLevel());
+                }
             }
-        }
-        else if (gameManager.getCurrentDifficulty().equals("3")) {
-            for (Unit player : gameManager.getPlayerParty()) {
-                System.out.printf(">> %s leveled up 4 times. (%d -> %d)\n", player.getOriginalName(), player.getLevel()-4, player.getLevel());
+            case "3" -> {
+                for (Unit player : gameManager.getPlayerParty()) {
+                    System.out.printf(">> %s leveled up 8 times. (%d -> %d)\n", player.getOriginalName(), player.getLevel() - 8, player.getLevel());
+                }
             }
         }
 

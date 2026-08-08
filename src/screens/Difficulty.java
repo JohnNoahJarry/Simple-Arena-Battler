@@ -67,9 +67,9 @@ public class Difficulty {
                 
                 >> Choose the difficulty of your next battle.
                 
-                [1] = Easy (1x difficulty and player scaling)
-                [2] = Medium (2x difficulty and player scaling)
-                [3] = Hard (4x difficulty and player scaling)
+                [1] = Easy (1x difficulty and 2x player scaling)
+                [2] = Medium (2x difficulty and 4x player scaling)
+                [3] = Hard (4x difficulty and 8x player scaling)
                 
                 """, gameManager.getCurrentBattleNumber());
     }

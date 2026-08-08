@@ -2,11 +2,15 @@
 
 A simple terminal game where you fight 10 battles to then overthrow the Arena's champions.
 
-## Version 1.1.2 Changelog
+## Version 1.2.0 Changelog
 
-+ Modified the SPD stat to better apply evasion and critical strike chances.
-+ Fixed 100% chances not displaying properly under enemy team stats.
-+ Fixed certain messages not appearing in the message log after each round in a battle.
++ Updated game scaling.
+  + Updated easy battles to scale the player by 2x.
+  + Updated medium battles to scale the player by 4x.
+  + Updated hard battles to scale the player by 8x.
++ Updated the final boss to be appropriate for hard scaling.
++ Updated the SPD stat to scale to 20% evasion and critical strike chance at 500 SPD.
++ Fixed a graphical error when a unit's name is too long.
 
 ## Summary
 

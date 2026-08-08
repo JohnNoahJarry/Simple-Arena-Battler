@@ -40,7 +40,7 @@ public class Title {
     private void displayTitle() {
         System.out.println("""
                 [===============================]
-                 | Simple Arena Battler v1.0.0 |
+                 | Simple Arena Battler v1.2.0 |
                 [===============================]
                 
                 [1] = Start

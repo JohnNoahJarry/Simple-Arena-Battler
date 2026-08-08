@@ -30,6 +30,8 @@ public class GameManager {
         this.names = new ArrayList<>();
 
         InputStream inputStream = getClass().getResourceAsStream("/Names");
+
+        assert inputStream != null;
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 
         try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
@@ -146,17 +148,28 @@ public class GameManager {
     public void createBoss() {
         enemyParty.clear();
 
-        this.enemyTeamName = this.names.get(random.nextInt(names.size()));
+        this.enemyTeamName = "Champion";
 
         for (int i = 0; i < 2; i++) {
             String name = this.names.get(random.nextInt(names.size()));
 
-            int level = 30;
+            int level = 100;
 
-            int hpGrowth = 10;
-            int atkGrowth = 5;
-            int defGrowth = 5;
-            int spdGrowth = 5;
+            int hpGrowth = 6;
+            int atkGrowth = 1;
+            int defGrowth = 1;
+            int spdGrowth = 1;
+
+            for (int j = 0; j < 4; j++) {
+                int randomNumber = random.nextInt(1,5);
+
+                switch (randomNumber) {
+                    case 1 -> hpGrowth++;
+                    case 2 -> atkGrowth++;
+                    case 3 -> defGrowth++;
+                    case 4 -> spdGrowth++;
+                }
+            }
 
             this.enemyParty.add(new Unit(name, level, hpGrowth, atkGrowth, defGrowth, spdGrowth));
         }
@@ -269,14 +282,18 @@ public class GameManager {
     public void levelUpPlayerParty() {
         for (Unit player : this.playerParty) {
             switch (currentDifficulty) {
-                case "1" -> player.levelUp();
-                case "2" -> {
+                case "1" -> {
                     for (int i = 0; i < 2; i++) {
                         player.levelUp();
                     }
                 }
-                case "3" -> {
+                case "2" -> {
                     for (int i = 0; i < 4; i++) {
+                        player.levelUp();
+                    }
+                }
+                case "3" -> {
+                    for (int i = 0; i < 8; i++) {
                         player.levelUp();
                     }
                 }
@@ -293,37 +310,37 @@ public class GameManager {
             System.out.printf("[Team %s]\n", this.teamName);
 
             for (int i = 0; i < this.playerParty.size(); i++) {
-                System.out.print("[=======================] ");
+                System.out.print("[==========================] ");
             }
 
             System.out.println();
 
             for (Unit player : this.playerParty) {
-                System.out.printf(" | %-19s |  ", player.getName());
+                System.out.printf(" | %-22s |  ", player.getName());
             }
 
             System.out.println();
 
             for (Unit player : this.playerParty) {
-                System.out.printf(" |   HP: %-4d / %-4d   |  ", player.getCurrentHP(), player.getMaximumHP());
+                System.out.printf(" |    HP: %-4d / %-4d     |  ", player.getCurrentHP(), player.getMaximumHP());
             }
 
             System.out.println();
 
             for (Unit player : this.playerParty) {
-                System.out.printf(" | LVL: %-4d ATK: %-4d |  ", player.getLevel(), player.getAtk());
+                System.out.printf(" |   LVL: %-4d ATK: %-4d  |  ", player.getLevel(), player.getAtk());
             }
 
             System.out.println();
 
             for (Unit player : this.playerParty) {
-                System.out.printf(" | DEF: %-4d SPD: %-4d |  ", player.getDef(), player.getSpd());
+                System.out.printf(" |   DEF: %-4d SPD: %-4d  |  ", player.getDef(), player.getSpd());
             }
 
             System.out.println();
 
             for (int i = 0; i < this.playerParty.size(); i++) {
-                System.out.print("[=======================] ");
+                System.out.print("[==========================] ");
             }
         }
     }

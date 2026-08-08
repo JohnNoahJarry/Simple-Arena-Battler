@@ -108,16 +108,16 @@ public class Unit {
         Random random = new Random();
         int evasionRNG = random.nextInt(101);
 
-        if (evasionRNG <= this.target.getSpd()/150*0.2*100) {
+        if (evasionRNG <= (double) this.target.getSpd() /500*0.2*100) {
             return String.format("%s tried to attack %s, but %s evaded the attack.", this.originalName, this.target.getOriginalName(), this.target.getOriginalName());
         }
 
         int critBonus = 1;
-        double effectiveElementBonus = 1;
+        double effectiveElementBonus = 0;
         double defendDamageReduction = 1;
 
         int critRNG = random.nextInt(101);
-        if (critRNG <= this.spd/150*0.2*100) {
+        if (critRNG <= (double) this.spd /500*0.2*100) {
             critBonus = 2;
         }
 
@@ -170,7 +170,7 @@ public class Unit {
         else if (critBonus == 1 && defendDamageReduction == 0.25) {
             return String.format("%s attacks %s with %s magic for %d damage, while %s is defending.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage, this.target.getOriginalName());
         }
-        else if (critBonus == 2 && effectiveElementBonus == 1) {
+        else if (critBonus == 2) {
             return String.format("%s CRITICALLY attacks %s with %s magic for %d damage.", this.originalName, this.target.getOriginalName(), this.selectedMagic, totalDamage);
         }
         else {

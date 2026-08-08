@@ -3,7 +3,6 @@ package screens;
 import objects.GameManager;
 import objects.Unit;
 
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -89,37 +88,37 @@ public class TeamRecruiter {
                 """, gameManager.getPlayerParty().size());
 
         for (int i = 0; i < 3; i++) {
-            System.out.print("[=======================] ");
+            System.out.print("[==========================] ");
         }
 
         System.out.println();
 
         for (Unit recruit : gameManager.getTeamRecruits()) {
-            System.out.printf(" | %-19s |  ", recruit.getOriginalName());
+            System.out.printf(" | %-22s |  ", recruit.getOriginalName());
         }
 
         System.out.println();
 
         for (Unit recruit : gameManager.getTeamRecruits()) {
-            System.out.printf(" |   HP: %-4d / %-4d   |  ", recruit.getCurrentHP(), recruit.getMaximumHP());
+            System.out.printf(" |    HP: %-4d / %-4d     |  ", recruit.getCurrentHP(), recruit.getMaximumHP());
         }
 
         System.out.println();
 
         for (Unit recruit : gameManager.getTeamRecruits()) {
-            System.out.printf(" | LVL: %-4d ATK: %-4d |  ", recruit.getLevel(), recruit.getAtk());
+            System.out.printf(" |   LVL: %-4d ATK: %-4d  |  ", recruit.getLevel(), recruit.getAtk());
         }
 
         System.out.println();
 
         for (Unit recruit : gameManager.getTeamRecruits()) {
-            System.out.printf(" | DEF: %-4d SPD: %-4d |  ", recruit.getDef(), recruit.getSpd());
+            System.out.printf(" |   DEF: %-4d SPD: %-4d  |  ", recruit.getDef(), recruit.getSpd());
         }
 
         System.out.println();
 
         for (int i = 0; i < 3; i++) {
-            System.out.print("[=======================] ");
+            System.out.print("[==========================] ");
         }
 
         if (!gameManager.getPlayerParty().isEmpty()) {

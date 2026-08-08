@@ -42,12 +42,14 @@ public class Battle {
             for (Unit player : this.gameManager.getPlayerParty()) {
                 if (!player.getStatus().equals("Defeated")) {
                     isAllPlayersDefeated = false;
+                    break;
                 }
             }
 
             for (Unit enemy : this.gameManager.getEnemyParty()) {
                 if (!enemy.getStatus().equals("Defeated")) {
                     isAllEnemiesDefeated = false;
+                    break;
                 }
             }
 
@@ -82,21 +84,23 @@ public class Battle {
                         }
 
                         if (!gameManager.getPlayerParty().get(i).getStatus().equals("Defending")) {
+                            label:
                             while (true) {
                                 gameManager.clearScreen();
                                 displayBattleMagicOptions(i);
                                 System.out.print("<< ");
                                 String magicChoice = scanner.nextLine();
 
-                                if (magicChoice.equals("1")) {
-                                    gameManager.getPlayerParty().get(i).setSelectedMagic("Sun");
-                                    break;
-                                } else if (magicChoice.equals("2")) {
-                                    gameManager.getPlayerParty().get(i).setSelectedMagic("Star");
-                                    break;
-                                } else if (magicChoice.equals("3")) {
-                                    gameManager.getPlayerParty().get(i).setSelectedMagic("Moon");
-                                    break;
+                                switch (magicChoice) {
+                                    case "1":
+                                        gameManager.getPlayerParty().get(i).setSelectedMagic("Sun");
+                                        break label;
+                                    case "2":
+                                        gameManager.getPlayerParty().get(i).setSelectedMagic("Star");
+                                        break label;
+                                    case "3":
+                                        gameManager.getPlayerParty().get(i).setSelectedMagic("Moon");
+                                        break label;
                                 }
                             }
                         }
@@ -156,37 +160,37 @@ public class Battle {
                 """, gameManager.getCurrentBattleNumber(), gameManager.getEnemyTeamName());
 
         for (int i = 0; i < gameManager.getEnemyParty().size(); i++) {
-            System.out.print("[=======================] ");
+            System.out.print("[==========================] ");
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" | %-19s |  ", enemy.getOriginalName());
+            System.out.printf(" | %-22s |  ", enemy.getOriginalName());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" |   HP: %-4d / %-4d   |  ", enemy.getCurrentHP(), enemy.getMaximumHP());
+            System.out.printf(" |    HP: %-4d / %-4d     |  ", enemy.getCurrentHP(), enemy.getMaximumHP());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" | LVL: %-4d ATK: %-4d |  ", enemy.getLevel(), enemy.getAtk());
+            System.out.printf(" |   LVL: %-4d ATK: %-4d  |  ", enemy.getLevel(), enemy.getAtk());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" | DEF: %-4d SPD: %-4d |  ", enemy.getDef(), enemy.getSpd());
+            System.out.printf(" |   DEF: %-4d SPD: %-4d  |  ", enemy.getDef(), enemy.getSpd());
         }
 
         System.out.println();
 
         for (int i = 0; i < gameManager.getEnemyParty().size(); i++) {
-            System.out.print("[=======================] ");
+            System.out.print("[==========================] ");
         }
 
         System.out.println();
@@ -324,49 +328,49 @@ public class Battle {
                 """, gameManager.getCurrentBattleNumber(), gameManager.getEnemyTeamName());
 
         for (int i = 0; i < gameManager.getEnemyParty().size(); i++) {
-            System.out.print("[=======================] ");
+            System.out.print("[==========================] ");
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" | %-19s |  ", enemy.getName());
+            System.out.printf(" | %-22s |  ", enemy.getName());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" |   HP: %-4d / %-4d   |  ", enemy.getCurrentHP(), enemy.getMaximumHP());
+            System.out.printf(" |    HP: %-4d / %-4d     |  ", enemy.getCurrentHP(), enemy.getMaximumHP());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" | LVL: %-4d ATK: %-4d |  ", enemy.getLevel(), enemy.getAtk());
+            System.out.printf(" |   LVL: %-4d ATK: %-4d  |  ", enemy.getLevel(), enemy.getAtk());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" | DEF: %-4d SPD: %-4d |  ", enemy.getDef(), enemy.getSpd());
+            System.out.printf(" |   DEF: %-4d SPD: %-4d  |  ", enemy.getDef(), enemy.getSpd());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" | SUN: %-3d%% STR: %-3d%% |  ", enemy.getSunChance(), enemy.getStarChance());
+            System.out.printf(" |   SUN: %-3d%% STR: %-3d%%  |  ", enemy.getSunChance(), enemy.getStarChance());
         }
 
         System.out.println();
 
         for (Unit enemy : gameManager.getEnemyParty()) {
-            System.out.printf(" |      MON: %-3d%%      |  ", enemy.getMoonChance());
+            System.out.printf(" |        MON: %-3d%%       |  ", enemy.getMoonChance());
         }
 
         System.out.println();
 
         for (int i = 0; i < gameManager.getEnemyParty().size(); i++) {
-            System.out.print("[=======================] ");
+            System.out.print("[==========================] ");
         }
     }
 }
