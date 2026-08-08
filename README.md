@@ -2,7 +2,7 @@
 
 A simple terminal game where you fight 10 battles to then overthrow the Arena's champions.
 
-## Version 1.2.0 Changelog
+## Version 1.2.1 Changelog
 
 + Updated game scaling.
   + Updated easy battles to scale the player by 2x.
@@ -11,6 +11,7 @@ A simple terminal game where you fight 10 battles to then overthrow the Arena's 
 + Updated the final boss to be appropriate for hard scaling.
 + Updated the SPD stat to scale to 20% evasion and critical strike chance at 500 SPD.
 + Fixed a graphical error when a unit's name is too long.
++ Fixed the defend command always returning 1 damage.
 
 ## Summary
 
