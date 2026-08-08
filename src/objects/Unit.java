@@ -113,7 +113,7 @@ public class Unit {
         }
 
         int critBonus = 1;
-        double effectiveElementBonus = 0;
+        double effectiveElementBonus = 1;
         double defendDamageReduction = 1;
 
         int critRNG = random.nextInt(101);
@@ -130,10 +130,9 @@ public class Unit {
                (this.selectedMagic.equals("Moon") && this.target.selectedMagic.equals("Sun"))) {
                    effectiveElementBonus = 2;
             }
-            else if (this.selectedMagic.equals(this.target.getSelectedMagic())) {
-                effectiveElementBonus = 1;
-            }
-            else {
+            else if ((this.selectedMagic.equals("Sun") && this.target.selectedMagic.equals("Moon")) ||
+                    (this.selectedMagic.equals("Star") && this.target.selectedMagic.equals("Sun")) ||
+                    (this.selectedMagic.equals("Moon") && this.target.selectedMagic.equals("Star"))) {
                 effectiveElementBonus = 0.5;
             }
         }
